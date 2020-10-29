@@ -12,25 +12,69 @@
 }
 
 .time-select, 
-.sound-picker, 
+.sound-picker,
 .player-container{
-
     height: 80%;
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.player-container{
+    position: relative;
+}
+
+.player-container svg{
+    position: absolute;
+    pointer-events: none;
+
+}
+
+.time-display{
+    position: absolute;
+    bottom: 5%;
+    color: white;
+    font-size: 15px;
 }
 
 .time-select{
-    background: chocolate;
+   
 }
 
 .sound-picker{
-    background: crimson;
+   
 }
 
 .player-container{
-    background: darkcyan;
+
 }
 
 video{
-    display: none;
+position: fixed;
+top: 0%;
+left: 0%;
+width: 100%;
+z-index: -10;
 }
+
+.time-select button,
+.sound-picker button{
+    color: white;
+    width: 30%;
+    height: 10%;
+    background: none;
+    border: 3px solid white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20%;
+    
+}
+
+.time-select button:hover{
+
+    color: black;
+    background: blanchedalmond;
+}
+
