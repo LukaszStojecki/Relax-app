@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+h1{
+    font-size: 40px;
+    color:white; 
+    font-family:Georgia;
+    text-align: center; 
+}
+
 .app{
     height: 100vh;
     display: flex;
@@ -32,9 +39,14 @@
   flex: 1;
 }
 
+.replay{
+  bottom: 15%;
+}
+
 .player-container svg{
     position: absolute;
     pointer-events: none;
+    transform: rotate(-90deg);
 
 }
 
@@ -60,6 +72,7 @@ z-index: -1;
     border: 3px solid black;
     cursor: pointer;
     transition: all 1s ease;
+    font-weight: bold;
 }
   
 .time-select button:hover{
@@ -81,9 +94,12 @@ z-index: -1;
 }
 
 .sound-picker button:nth-child(2){
-    background: red;
+    background: yellow;
 }
 
 .sound-picker button img{
     height: 100%;
 }
+
+
+
