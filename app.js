@@ -3,13 +3,13 @@ const app = () => {
     const play = document.querySelector('.play');
     const outline = document.querySelector('.moving-outline circle');
     const video = document.querySelector('.video-container video');
-    const replay = document.querySelector('.replay');
+    const replay = document.querySelector('.replays');
     
-
     const sounds = document.querySelectorAll('.sound-picker button');
 
     const time = document.querySelector('.time-display');
     const timeSelect = document.querySelectorAll('.time-select button');
+
     const outlineLength = outline.getTotalLength();
     console.log(outlineLength);
 
@@ -31,6 +31,10 @@ const app = () => {
         checkPlaying(song);
     });
 
+    replay.addEventListener('click', ()=>{
+        restartSong(song);
+
+    });
 
     timeSelect.forEach(option => {
         option.addEventListener('click', function () {
@@ -40,6 +44,11 @@ const app = () => {
                 )}`;
         });
     });
+
+    const restartSong = song =>{
+        let currentTime = song.currentTime;
+        song.currentTime = 0;
+    };
 
 
     const checkPlaying = song => {
@@ -59,6 +68,12 @@ const app = () => {
         let elapsed = duration - currentTime;
         let seconds = Math.floor(elapsed % 60);
         let minutes = Math.floor(elapsed / 60);
+
+        if(seconds < 10){
+            seconds = '0'+seconds;
+        }else if(minutes <10){
+            minutes = '0' + minutes;
+        }
 
         let progress = outlineLength - (currentTime / duration) * outlineLength;
         outline.style.strokeDashoffset = progress;
